@@ -1,10 +1,6 @@
 package top.ourfor.io
 
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
-import java.io.BufferedWriter
-import java.io.IOException
-import java.io.File
+import java.io.*
 
 
 /**
@@ -33,4 +29,24 @@ fun write(file: File, content: String, encoding: String) {
 @Throws(IOException::class)
 fun write(file: File, content: String) {
     write(file, content, "UTF-8")
+}
+
+/**
+ * @param file the file you want to read
+ * @param encoding the text file encoding, or open this file with this encoding
+ * @return the content of text file
+ */
+@Throws(IOException::class)
+fun read(file: File,encoding: String): String {
+    val reader = BufferedReader(InputStreamReader(FileInputStream(file),encoding))
+    return reader.readText()
+}
+
+/**
+ * @param file the file you want to read, open file with default encoding utf-8
+ * @return the content of text file
+ */
+@Throws(IOException::class)
+fun read(file: File): String {
+    return read(file,"UTF-8")
 }

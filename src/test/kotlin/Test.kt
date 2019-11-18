@@ -1,20 +1,17 @@
 package top.ourfor
 
-import top.ourfor.io.write
 import org.junit.Test
-import top.ourfor.net.http.download
-import top.ourfor.net.http.get
+import top.ourfor.io.read
 import java.io.File
 
 class MyTest {
 
-    val data: String = "/Users/catalina/Desktop/樱花粉的浪漫.flac"
-    val url: String = "https://api.ourfor.top/blog/essays"
+    val path = "/Users/catalina/Desktop/json/UI设计师.json"
 
 
     @Test
     fun testFile(): Unit {
-        println(get(url))
+        println(read(File(path)))
     }
 
 }

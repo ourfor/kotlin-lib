@@ -39,8 +39,8 @@ dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
-	implementation("com.alibaba:fastjson:+")
-	implementation("com.squareup.okhttp3:okhttp:+")
+	implementation("com.alibaba:fastjson:1.2.62")
+	implementation("com.squareup.okhttp3:okhttp:4.2.2")
 	testImplementation("junit:junit:4.12")
 
 }
