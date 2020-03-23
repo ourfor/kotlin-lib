@@ -9,12 +9,12 @@ plugins {
     signing
 	`maven-publish`
 	id("org.jetbrains.dokka") version "0.9.17"
-	kotlin("jvm") version "1.3.50"
-	kotlin("plugin.allopen") version "1.3.50"
+	kotlin("jvm") version "1.3.70"
+	kotlin("plugin.allopen") version "1.3.70"
 }
 
 buildscript {
-    var kotlinVersion = "1.3.50"
+    var kotlinVersion = "1.3.70"
 	repositories {
 		mavenCentral()
 	}
@@ -37,7 +37,7 @@ dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.3")
 	implementation("com.squareup.okhttp3:okhttp:4.4.0")
 	testImplementation("junit:junit:4.12")
 
@@ -103,7 +103,6 @@ publishing {
 	publications {
 		create<MavenPublication>("default") {
 			from(components["java"])
-//			artifact(dokkaJar)
 			artifact(javadocJar.get())
 			artifact(sourcesJar.get())
 			groupId = "top.ourfor"
