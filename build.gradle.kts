@@ -2,12 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.jvm.tasks.Jar
 
 group = "top.ourfor"
-version = "0.0.2"
+version = "0.0.4"
 
 plugins {
 	java
     signing
-	`build-scan`
 	`maven-publish`
 	id("org.jetbrains.dokka") version "0.9.17"
 	kotlin("jvm") version "1.3.50"
@@ -20,7 +19,6 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
 	}
 }
 
@@ -39,8 +37,8 @@ dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
-	implementation("com.alibaba:fastjson:1.2.62")
-	implementation("com.squareup.okhttp3:okhttp:4.2.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+")
+	implementation("com.squareup.okhttp3:okhttp:4.4.0")
 	testImplementation("junit:junit:4.12")
 
 }
@@ -100,11 +98,6 @@ val sonatypeRepository = publishing.repositories.maven {
 	}
 }
 
-buildScan {
-	termsOfServiceUrl = "https://gradle.com/terms-of-service"
-	termsOfServiceAgree = "yes"
-	publishAlways()
-}
 
 publishing {
 	publications {

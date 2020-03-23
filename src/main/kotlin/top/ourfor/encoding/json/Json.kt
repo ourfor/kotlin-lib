@@ -1,14 +1,16 @@
 package top.ourfor.encoding.json
 
-import com.alibaba.fastjson.JSON
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+
+object Json {
+    val mapper = jacksonObjectMapper()
+}
 
 /**
  * @param obj the object you want to stringify
  * @return result is the json string of para obj
  */
-fun stringify(obj: Any): String {
-    return JSON.toJSONString(obj)
-}
+fun stringify(obj: Any): String = Json.mapper.writeValueAsString(obj)
 
 /**
  * @param string string with type json
@@ -16,6 +18,4 @@ fun stringify(obj: Any): String {
  * @return result is an object
  */
 
-fun <T> parse(string: String,clazz: Class<T>): T {
-    return JSON.parseObject(string,clazz)
-}
+fun <T> parse(string: String,clazz: Class<T>): T = Json.mapper.convertValue(string,clazz)

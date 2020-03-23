@@ -1,17 +1,31 @@
 package top.ourfor
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.junit.Test
-import top.ourfor.io.read
-import java.io.File
+import top.ourfor.crypto.Md5
+import top.ourfor.crypto.uuid
+import top.ourfor.encoding.json.stringify
 
 class MyTest {
 
-    val path = "/Users/catalina/Desktop/json/UI设计师.json"
-
-
     @Test
     fun testFile(): Unit {
-        println(read(File(path)))
+        println("Test")
+        val mapper = jacksonObjectMapper()
+        println(mapper.writeValueAsString(Data(100,"test")))
+        val id = Md5.md5HexBuff("8888888",null)?.uuid()
+        println(id)
+        println(stringify(Data(200,"good night")))
     }
 
 }
+
+private fun String.uuid() {
+    println(this)
+}
+
+
+data class Data (
+        val id: Int,
+        val tag: String
+)
