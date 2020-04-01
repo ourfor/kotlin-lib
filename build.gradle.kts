@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.jvm.tasks.Jar
 
 group = "top.ourfor"
-version = "0.0.4"
+version = "0.0.5"
 
 plugins {
 	java

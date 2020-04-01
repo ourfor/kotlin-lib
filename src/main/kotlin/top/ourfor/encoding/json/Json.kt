@@ -18,4 +18,5 @@ fun stringify(obj: Any): String = Json.mapper.writeValueAsString(obj)
  * @return result is an object
  */
 
-fun <T> parse(string: String,clazz: Class<T>): T = Json.mapper.convertValue(string,clazz)
+fun <T> parse(string: String, clazz: Class<T>): T = Json.mapper.readValue(string,clazz)
+

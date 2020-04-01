@@ -4,6 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.junit.Test
 import top.ourfor.crypto.Md5
 import top.ourfor.crypto.uuid
+import top.ourfor.encoding.json.parse
 import top.ourfor.encoding.json.stringify
 
 class MyTest {
@@ -16,6 +17,7 @@ class MyTest {
         val id = Md5.md5HexBuff("8888888",null)?.uuid()
         println(id)
         println(stringify(Data(200,"good night")))
+        println(parse("""{"tag": "version"}""",Data::class.java))
     }
 
 }
@@ -26,6 +28,6 @@ private fun String.uuid() {
 
 
 data class Data (
-        val id: Int,
-        val tag: String
+        val id: Int?,
+        val tag: String?
 )
