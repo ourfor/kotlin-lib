@@ -14,7 +14,7 @@ plugins {
 }
 
 buildscript {
-    var kotlinVersion = "1.3.70"
+    var kotlinVersion = "1.3.71"
 	repositories {
 		mavenCentral()
 	}
@@ -36,11 +36,10 @@ repositories {
 dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.3")
-	implementation("com.squareup.okhttp3:okhttp:4.4.0")
+	implementation("com.squareup.okhttp3:okhttp:4.4.1")
 	testImplementation("junit:junit:4.12")
-
 }
 
 allOpen {
